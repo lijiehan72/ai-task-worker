@@ -32,7 +32,7 @@
 - 新的来源可以是 nginx 日志、工单系统、Sentry、数据库、消息队列
 - 新的执行器可以是更多 AI 编程工具
 
-## 给人的使用方式
+## 怎么用
 
 你不需要先读懂全部代码，再去手动操作内部模块。
 
@@ -51,80 +51,14 @@
 
 换句话说，这个项目不是希望人类自己去记住所有内部结构，而是希望人类通过 AI 来操作它。
 
-## 常用命令
+如果你不知道该怎么开始，可以直接这样说：
 
-更推荐的主入口：
+- `我想让这个项目监听飞书多维表格里的 bug 或需求，并自动去修改 /root/work/demo 的代码。你先告诉我需要准备哪些信息，如果缺什么再继续问我。`
+- `我想给 /root/work/demo 增加一个自动处理需求的来源，你帮我设计并接入。`
+- `帮我看看这个项目现在接了哪些来源，今天处理了什么。`
 
-```bash
-codex
-```
-
-或：
-
-```bash
-claude
-```
-
-在 Claude Code 里，你可以直接说：
-
-- `请帮我创建一个需求来源`
-- `用 source-configurator subagent 帮我接一个飞书多维表格`
-- `/create-source`
-
-在 Codex 里，你可以直接说：
-
-- `帮我创建一个需求来源，如果信息不完整就继续追问我`
-- `帮我接一个飞书多维表格来源`
-
-如果你不知道该怎么开始，也可以直接这样说：
-
-- `我想为 /root/work/demo 项目接入飞书多维表格，实现 bug 自动修复。你先告诉我需要准备哪些信息，如果缺什么再继续问我。`
-
-启动默认模式：
-
-```bash
-npm start
-```
-
-单次扫描：
-
-```bash
-npm run once
-```
-
-强制使用 Codex：
-
-```bash
-npm run start:codex
-npm run once:codex
-```
-
-强制使用 Claude Code：
-
-```bash
-npm run start:claude
-npm run once:claude
-```
-
-查看当前 Feishu 扫到了什么：
-
-```bash
-npm run debug:records
-```
-
-把意图文件导出成结构化配置：
-
-```bash
-npm run compile:intents
-```
-
-当前第一版意图文件在：
-
-```text
-sources/feishu/intent/default.md
-```
-
-日常运行时，不需要先手动执行编译命令。Worker 会直接读取意图文件。
+日常使用时，更推荐直接在这个目录里启动 `codex` 或 `claude`。  
+具体命令和脚本不用在 README 里展开，AI 或人都可以直接查看 [package.json](/root/work/ai-task-worker/package.json)。
 
 ## 日志
 
@@ -200,7 +134,7 @@ logs/
 
 如果你希望 Codex 或 Claude Code 更稳定地操作这个项目，可以让它们先看：
 
-- [AGENTS.md](/root/work/ai-task-worker/AGENTS.md)
-- [CLAUDE.md](/root/work/ai-task-worker/CLAUDE.md)
+- [AGENTS.md](AGENTS.md)
+- [CLAUDE.md](CLAUDE.md)
 
 这些文件不是给人类背内部实现的，而是给 AI 理解这个项目的边界、结构和推荐操作方式的。
