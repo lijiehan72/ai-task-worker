@@ -1,0 +1,17 @@
+{
+  "name": "ai-task-worker",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI task worker that routes source-driven work to coding agents.",
+  "scripts": {
+    "start": "node worker/index.js",
+    "start:codex": "WORKER_RUNNER_TYPE=codex node worker/index.js",
+    "start:claude": "WORKER_RUNNER_TYPE=claude_code node worker/index.js",
+    "once": "node worker/index.js --once",
+    "once:codex": "WORKER_RUNNER_TYPE=codex node worker/index.js --once",
+    "once:claude": "WORKER_RUNNER_TYPE=claude_code node worker/index.js --once",
+    "compile:intents": "node scripts/compile-intents.js",
+    "debug:records": "node test/debug-feishu-records.js",
+    "test:update-record": "node test/update-feishu-record.js"
+  }
+}

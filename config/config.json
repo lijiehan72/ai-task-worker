@@ -1,0 +1,10 @@
+{
+  "worker": {
+    "poll_interval_seconds": 60,
+    "max_retry": 1,
+    "dry_run": false
+  },
+  "source_files": [
+    "./sources/feishu/intent/default.md"
+  ]
+}
