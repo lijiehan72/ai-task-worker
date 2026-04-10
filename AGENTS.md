@@ -114,6 +114,27 @@ When the user wants to create or edit a source, act as a configuration concierge
 - prefer generating or editing `sources/<type>/intent/*.md`
 - do not force the user to think in raw schema terms unless they explicitly ask for schema details
 
+## Codex Team Pattern
+
+When using Codex in a multi-agent style, prefer role separation over ad hoc parallelism.
+
+Recommended roles:
+
+- `orchestrator`: triage the request, split work, integrate findings, own final verification
+- `source-agent`: own `sources/`, `lib/sources/`, and source-scoped logs
+- `runner-agent`: own `lib/engine/runner.js` and runner-specific modules
+- `verification-agent`: own `logs/`, `data/state.json`, `test/`, and validation commands
+
+Rules:
+
+- Split by repository boundary first, not by arbitrary file chunks.
+- Do not have multiple agents editing the same area at the same time.
+- Source work starts from `sources/<type>/intent/` before engine edits.
+- Runner work stays out of source adapters unless a normalized interface must change.
+- Verification agents should prefer reproducing and localizing failures before proposing code changes.
+
+See `docs/codex-team.md` for the operator-facing playbook and prompt templates.
+
 ## Documentation Rule
 
 Keep `README.md` human-oriented:
